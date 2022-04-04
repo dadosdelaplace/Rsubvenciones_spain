@@ -8,7 +8,7 @@ GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org
 
 # Rsubvenciones_spain
 
-Aportación desde la **comunidad de R** para la extracción, limpieza y visualización de los datos del volcado de la Base de Datos Nacional de Subvenciones (BDNS). Github del proyecto global puesto en marcha por [Jaime Gómez-Obregón](https://github.com/JaimeObregon/subvenciones)
+Aportación desde la **comunidad de R** para la extracción, limpieza y visualización de los datos del volcado de la Base de Datos Nacional de Subvenciones (BDNS). Github del proyecto global y comunitario puesto en marcha por [**Jaime Gómez-Obregón**](https://github.com/JaimeObregon/subvenciones)
 
 |              |                                                                    |
 | ------------ | ------------------------------------------------------------------ |
@@ -22,4 +22,4 @@ Para serlo debes entrar en el [**Discord**](https://discord.gg/r2ytSa782D) del p
 
 ## Proyecto final
 
-La idea final es **elaborar un paquete de R** con la filosofía de [R Open Spain](https://ropenspain.es/paquetes/), para facilitar el acceso a los datos y sus visuaizaciones de la comunidad estadística, del periodismo de datos y, en general, a toda la comunidad de R.
+La idea final es **elaborar un paquete de R** con la filosofía de [**R Open Spain**](https://ropenspain.es/paquetes/), para facilitar el acceso a los datos y sus visuaizaciones de la comunidad estadística, del periodismo de datos y, en general, a toda la comunidad de R.
