@@ -26,6 +26,32 @@ Para serlo debes entrar en el [**Discord**](https://discord.gg/r2ytSa782D) del p
 
 La idea final es **elaborar un paquete de R** con la filosofía de [**R Open Spain**](https://ropenspain.es/paquetes/), para facilitar el acceso a los datos y sus visuaizaciones de la comunidad estadística, del periodismo de datos y, en general, a toda la comunidad de R.
 
+## Estado actual
+
+En la carpeta `scripts` hay dos scripts en R:
+
+- `convocatorias.R`, que crea la función `carga_convocatorias()`.
+- `subvenciones.R` que crea la función `carga_subvenciones()`.
+
+Estas funciones pueden ser usadas según las necesidades del usuario:
+
+```r
+
+# Carga las funciones 
+
+source("scripts/subvenciones.R")
+source("scripts/convocatorias.R")
+
+# Obtiene los datos 
+
+sub <- carga_subvenciones()
+
+
+```
+
+Los resultados se proporcionan en formato [`tibble`](https://tibble.tidyverse.org/). Los nombres de las
+columnas se proporcionan según lo comentado en https://github.com/JaimeObregon/subvenciones/issues/11.
+
 ## Colaboradores/as actuales (inserta nombre y si quieres redes)
 
 * Javier Álvarez Liébana ([@dadosdelaplace](https://twitter.com/dadosdelaplace))
