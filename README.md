@@ -20,6 +20,8 @@ Aportación desde la **comunidad de R** para la extracción, limpieza y visualiz
 
 Para serlo debes entrar en el [**Discord**](https://discord.gg/r2ytSa782D) del proyecto de Jaime y enviarme el nick de Github por privado (@javieralvarezliebana) para poder añadirte como colaborador/a del repositorio
 
+**IMPORTANTE**: nunca hacer un pull request o commit a la rama main. Siempre crear una rama paralela y al hacer pull request **mencionar en la pull** a @dieghernan y @dadosdelaplace para validar y hacer merge sobre la rama.
+
 ## Proyecto final
 
 La idea final es **elaborar un paquete de R** con la filosofía de [**R Open Spain**](https://ropenspain.es/paquetes/), para facilitar el acceso a los datos y sus visuaizaciones de la comunidad estadística, del periodismo de datos y, en general, a toda la comunidad de R.
