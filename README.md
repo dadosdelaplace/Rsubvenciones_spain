@@ -1,3 +1,11 @@
+[![License:
+GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+<a href="https://github.com/dadosdelaplace/Rsubvenciones_spain/graphs/contributors" alt="Contributors"> <img src="https://img.shields.io/github/contributors/dadosdelaplace/Rsubvenciones_spain" /></a>
+<a href="https://discord.gg/r2ytSa782D">
+        <img src="https://img.shields.io/discord/308323056592486420?logo=discord"
+            alt="chat on Discord"></a>
+            
+
 # Rsubvenciones_spain
 
 **Scripts en R** para la extracción y limpieza de los datos del volcado de la Base de Datos Nacional de Subvenciones (BDNS). Github del proyecto global: https://github.com/JaimeObregon/subvenciones
@@ -9,3 +17,7 @@ Aportación desde la comunidad de R al proyecto puesto en marcha por [Jaime Góm
 | GitHub       | <https://github.com/JaimeObregon/subvenciones>                       |
 | Discord      | <https://discord.gg/r2ytSa782D>                                      |
 | Idea inicial | <https://twitter.com/JaimeObregon/status/1507693311422877697> (hilo) |
+
+## Ser colaborador/a del repositorio
+
+Para serlo debes entrar en el [**Discord**](https://discord.gg/r2ytSa782D) del proyecto de Jaime y enviarme el nick de Github por privado (@javieralvarezliebana) para poder añadirte como colaborador/a del repositorio
