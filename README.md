@@ -23,3 +23,8 @@ Para serlo debes entrar en el [**Discord**](https://discord.gg/r2ytSa782D) del p
 ## Proyecto final
 
 La idea final es **elaborar un paquete de R** con la filosofía de [**R Open Spain**](https://ropenspain.es/paquetes/), para facilitar el acceso a los datos y sus visuaizaciones de la comunidad estadística, del periodismo de datos y, en general, a toda la comunidad de R.
+
+## Colaboradores/as actuales (inserta tu nombre y redes)
+
+* Javier Álvarez Liébana ([@dadosdelaplace](https://twitter.com/dadosdelaplace))
+* Diego Hernangómez ([@dhernangomez](https://twitter.com/dhernangomez))
