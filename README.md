@@ -16,7 +16,7 @@ Aportación desde la **comunidad de R** para la extracción, limpieza y visualiz
 | Discord      | <https://discord.gg/r2ytSa782D>                                      |
 | Idea inicial | <https://twitter.com/JaimeObregon/status/1507693311422877697> (hilo) |
 
-## Ser colaborador/a del repositorio. Reglas.
+## Ser colaborador/a del repositorio
 
 Para serlo debes entrar en el [**Discord**](https://discord.gg/r2ytSa782D) del proyecto de Jaime y enviarme el nick de Github por privado (@javieralvarezliebana) para poder añadirte como colaborador/a del repositorio
 
@@ -26,7 +26,7 @@ Para serlo debes entrar en el [**Discord**](https://discord.gg/r2ytSa782D) del p
 
 La idea final es **elaborar un paquete de R** con la filosofía de [**R Open Spain**](https://ropenspain.es/paquetes/), para facilitar el acceso a los datos y sus visuaizaciones de la comunidad estadística, del periodismo de datos y, en general, a toda la comunidad de R.
 
-## Colaboradores/as actuales (inserta nombre y redes)
+## Colaboradores/as actuales (inserta nombre y si quieres redes)
 
 * Javier Álvarez Liébana ([@dadosdelaplace](https://twitter.com/dadosdelaplace))
 * Diego Hernangómez ([@dhernangomez](https://twitter.com/dhernangomez))
