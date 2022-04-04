@@ -31,7 +31,7 @@ La idea final es **elaborar un paquete de R** con la filosofía de [**R Open Spa
 En la carpeta `scripts` hay dos scripts en R:
 
 - `convocatorias.R`, que crea la función `carga_convocatorias()`.
-- `subvenciones.R` que crea la función `carga_subvenciones()`
+- `subvenciones.R` que crea la función `carga_subvenciones()`.
 
 Estas funciones pueden ser usadas según las necesidades del usuario:
 
@@ -40,7 +40,7 @@ Estas funciones pueden ser usadas según las necesidades del usuario:
 # Carga las funciones 
 
 source("scripts/subvenciones.R")
-source(“scripts/convocatorias.R”)
+source("scripts/convocatorias.R")
 
 # Obtiene los datos 
 
