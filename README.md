@@ -28,3 +28,4 @@ La idea final es **elaborar un paquete de R** con la filosofía de [**R Open Spa
 
 * Javier Álvarez Liébana ([@dadosdelaplace](https://twitter.com/dadosdelaplace))
 * Diego Hernangómez ([@dhernangomez](https://twitter.com/dhernangomez))
+* Lucía Pascual Martínez
