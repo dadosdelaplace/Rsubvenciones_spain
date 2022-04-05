@@ -28,29 +28,30 @@ La idea final es **elaborar un paquete de R** con la filosofía de [**R Open Spa
 
 ## Estado actual
 
-En la carpeta `scripts` hay dos scripts en R:
+La carpeta `scripts` contiene los siguientes scripts en R:
 
-- `convocatorias.R`, que crea la función `carga_convocatorias()`.
-- `subvenciones.R` que crea la función `carga_subvenciones()`.
+- `funciones_carga.R` contiene distintas funciones para la carga de los datos. Los resultados se proporcionan en formato [`tibble`](https://tibble.tidyverse.org/). Los nombres de las
+columnas se proporcionan según lo comentado en https://github.com/JaimeObregon/subvenciones/issues/11.
+  - `descarga_datos()`: función auxiliar que descarga los datos en bruto a nuestro local.
+  - `carga_convocatorias()`: función para la descarga del archivo de las convocatorias, editando una cabecera de tabla correcta.
+  - `carga_subvenciones()` función para la descarga del archivo de las subvenciones, editando una cabecera de tabla correcta.
 
-Estas funciones pueden ser usadas según las necesidades del usuario:
+Estas funciones pueden ser usadas según las necesidades del usuario (ver ejemplos de uso en la carpeta `ejemplos`)
 
 ```r
 
-# Carga las funciones 
+# Funciones de carga
+source("./scripts/funciones_carga.R")
 
-source("scripts/subvenciones.R")
-source("scripts/convocatorias.R")
+# Archivo convocatoria (solo con nombres) sin guardar
+conv <- carga_convocatorias()
 
-# Obtiene los datos 
-
-sub <- carga_subvenciones()
-
+# Archivo convocatoria (solo con nombres) guardando en local
+conv <- carga_convocatorias(save_conv = TRUE)
 
 ```
 
-Los resultados se proporcionan en formato [`tibble`](https://tibble.tidyverse.org/). Los nombres de las
-columnas se proporcionan según lo comentado en https://github.com/JaimeObregon/subvenciones/issues/11.
+
 
 ## Colaboradores/as actuales (inserta nombre y si quieres redes)
 
