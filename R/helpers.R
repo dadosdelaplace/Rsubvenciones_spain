@@ -108,11 +108,7 @@ extrae_cif <- function(x, col_benef = "beneficiario", append = TRUE) {
 #' nifs
 #'
 valida_cif <- function(cif) {
-  x <- purrr::map_lgl(
-    as.character(cif),
-    valida_cif_single
-  )
-
+  x <- unlist(lapply(cif, valida_cif_single))
   return(x)
 }
 
