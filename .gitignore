@@ -37,3 +37,10 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+subvencionesES.Rcheck/
+subvencionesES*.tar.gz
+subvencionesES*.tgz
+revdep
+CRAN-SUBMISSION
+.github/pkg.lock
+docs/
