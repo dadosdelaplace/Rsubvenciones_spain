@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>/404.html</loc>
+  </url>
+  <url>
+    <loc>/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>/authors.html</loc>
+  </url>
+  <url>
+    <loc>/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/carga_dataset_ejemplo.html</loc>
+  </url>
+  <url>
+    <loc>/reference/carga_datos.html</loc>
+  </url>
+  <url>
+    <loc>/reference/extrae_cif.html</loc>
+  </url>
+  <url>
+    <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/subvencionesES-package.html</loc>
+  </url>
+  <url>
+    <loc>/reference/valida_cif.html</loc>
+  </url>
+</urlset>
