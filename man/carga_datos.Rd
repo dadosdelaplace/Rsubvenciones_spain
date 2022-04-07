@@ -8,12 +8,14 @@
 \usage{
 carga_convocatorias(
   cache_dir = rappdirs::user_data_dir("subvencionesES"),
-  update = FALSE
+  update = FALSE,
+  rebuild_db = FALSE
 )
 
 carga_subvenciones(
   cache_dir = rappdirs::user_data_dir("subvencionesES"),
-  update = FALSE
+  update = FALSE,
+  rebuild_db = FALSE
 )
 }
 \arguments{
@@ -25,6 +27,9 @@ se almacena tambíén la copia procesada en formato .RData}
 actual o cargar la copia local. Por defecto carga copia local (\code{FALSE}).
 Con la opción \code{update = TRUE} el paquete reescribe también el archivo
 .RData asociado.}
+
+\item{rebuild_db}{Vuelve a generar la base de datos local .RData a partir
+de los archivos csv ya descargados.}
 }
 \value{
 Un objeto en formato \code{tibble} con las cabeceras correctas.

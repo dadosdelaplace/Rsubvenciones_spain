@@ -4,12 +4,14 @@
 library(subvencionesES)
 library(dplyr)
 
+
+options(dplyr.print_max = 10)
 # Muestra de ejemplo
 
-subvenciones <- carga_subvenciones(tempdir()) %>%
+subvenciones <- carga_subvenciones(rebuild_db = TRUE) %>%
   slice(1:5000)
 
-convocatorias <- carga_convocatorias(tempdir())
+convocatorias <- carga_convocatorias(update = TRUE)
 
 # Une ambos datasets
 
@@ -29,7 +31,7 @@ save(subvenciones,
   file = "./inst/extdata/test/subvenciones.RData"
 )
 
-tmstamp <- list.files(tempdir(),
+tmstamp <- list.files(rappdirs::user_data_dir("subvencionesES"),
   pattern = "timestamp.txt$",
   full.names = TRUE
 )
@@ -39,6 +41,4 @@ basenames <- basename(tmstamp)
 file.copy(tmstamp,
   to = "./inst/extdata/test/", recursive = TRUE
 )
-
-
 tools::resaveRdaFiles("./inst/extdata/test", compress = "auto")

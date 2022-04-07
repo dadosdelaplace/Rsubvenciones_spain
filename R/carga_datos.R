@@ -31,6 +31,8 @@
 #'   actual o cargar la copia local. Por defecto carga copia local (`FALSE`).
 #'   Con la opción `update = TRUE` el paquete reescribe también el archivo
 #'   .RData asociado.
+#' @param rebuild_db Vuelve a generar la base de datos local .RData a partir
+#'   de los archivos csv ya descargados.
 #'
 #' @details
 #'
@@ -132,7 +134,8 @@
 #' sub <- carga_subvenciones()
 #' }
 carga_convocatorias <- function(cache_dir = rappdirs::user_data_dir("subvencionesES"),
-                                update = FALSE) {
+                                update = FALSE,
+                                rebuild_db = FALSE) {
 
   # Creamos paths
 
@@ -142,7 +145,7 @@ carga_convocatorias <- function(cache_dir = rappdirs::user_data_dir("subvencione
   # En primer lugar comprobamos si hay copia local almacenada en Rdata y
   # la cargamos si no se ha pedido actualización
 
-  if (isFALSE(update) & file.exists(local_rda)) {
+  if (all(isFALSE(update), file.exists(local_rda), isFALSE(rebuild_db))) {
     x <- cache_load(local_rda, local_timestamp)
     return(x$convocatorias)
   }
@@ -166,11 +169,15 @@ carga_convocatorias <- function(cache_dir = rappdirs::user_data_dir("subvencione
   )
 
   # Creamos un timestamp
-  time <- format(Sys.time(), usetz = TRUE)
+  # Si ya tenemos la base de datos no actualizamos el timestamp
+  # Caso de actualización de bbdd
+  if (!file.exists(local_rda)) {
+    time <- format(Sys.time(), usetz = TRUE)
 
-  writeLines(time,
-    con = local_timestamp
-  )
+    writeLines(time,
+      con = local_timestamp
+    )
+  }
 
   # Carga con readr (tidyverse) sin nombre de columnas
   # dos primeras columnas --> códigos id
@@ -181,7 +188,8 @@ carga_convocatorias <- function(cache_dir = rappdirs::user_data_dir("subvencione
         col_names = FALSE,
         col_types = readr::cols(
           X1 = readr::col_character(),
-          X2 = readr::col_character()
+          X2 = readr::col_character(),
+          X7 = readr::col_date(format = "%d/%m/%Y")
         )
       )
     }
@@ -205,10 +213,25 @@ carga_convocatorias <- function(cache_dir = rappdirs::user_data_dir("subvencione
   )
   names(convocatorias) <- col_names_conv
 
+  # Modifica el campo mrr a logico
+  convocatorias$mrr <- purrr::map_lgl(
+    convocatorias$mrr, function(x) {
+      switch(x,
+        NO = FALSE,
+        SI = TRUE,
+        NA
+      )
+    }
+  )
+
   # Guardamos en local con nombres cambiados
   message("Creando copia local en ", local_rda)
   save(convocatorias, file = local_rda)
 
+  if (isFALSE(update)) {
+    time <- readLines(local_timestamp)
+    message("Timestamp de datos csv en local: ", time)
+  }
   # Output
   return(convocatorias)
 }
@@ -216,7 +239,8 @@ carga_convocatorias <- function(cache_dir = rappdirs::user_data_dir("subvencione
 #' @export
 #' @rdname carga_datos
 carga_subvenciones <- function(cache_dir = rappdirs::user_data_dir("subvencionesES"),
-                               update = FALSE) {
+                               update = FALSE,
+                               rebuild_db = FALSE) {
   # Creamos paths
 
   local_rda <- file.path(cache_dir, "subvenciones.RData")
@@ -225,7 +249,7 @@ carga_subvenciones <- function(cache_dir = rappdirs::user_data_dir("subvenciones
   # En primer lugar comprobamos si hay copia local almacenada en Rdata y
   # la cargamos si no se ha pedido actualización
 
-  if (isFALSE(update) & file.exists(local_rda)) {
+  if (all(isFALSE(update), file.exists(local_rda), isFALSE(rebuild_db))) {
     x <- cache_load(local_rda, local_timestamp)
     return(x$subvenciones)
   }
@@ -249,11 +273,15 @@ carga_subvenciones <- function(cache_dir = rappdirs::user_data_dir("subvenciones
   )
 
   # Creamos un timestamp
-  time <- format(Sys.time(), usetz = TRUE)
+  # Si ya tenemos la base de datos no actualizamos el timestamp
+  # Caso de actualización de bbdd
+  if (!file.exists(local_rda)) {
+    time <- format(Sys.time(), usetz = TRUE)
 
-  writeLines(time,
-    con = local_timestamp
-  )
+    writeLines(time,
+      con = local_timestamp
+    )
+  }
 
   subvenciones <- purrr::map_dfr(
     file_dest,
@@ -262,7 +290,8 @@ carga_subvenciones <- function(cache_dir = rappdirs::user_data_dir("subvenciones
         col_names = FALSE,
         col_types = readr::cols(
           X1 = readr::col_character(),
-          X2 = readr::col_character()
+          X2 = readr::col_character(),
+          X9 = readr::col_date(format = "%d/%m/%Y")
         )
       )
     }
@@ -295,6 +324,11 @@ carga_subvenciones <- function(cache_dir = rappdirs::user_data_dir("subvenciones
   message("Creando copia local en ", local_rda)
 
   save(subvenciones, file = local_rda)
+
+  if (isFALSE(update)) {
+    time <- readLines(local_timestamp)
+    message("Timestamp de datos csv en local: ", time)
+  }
 
   # Output
   return(subvenciones)

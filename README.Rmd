@@ -7,24 +7,37 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  dev = "ragg_png",
+  tidy = "styler",
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(tidyverse)
 ```
 
 # subvencionesES
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/dadosdelaplace/Rsubvenciones_spain/actions/workflows/check-pak.yaml/badge.svg?branch=rpak)](https://github.com/dadosdelaplace/Rsubvenciones_spain/actions/workflows/check-pak.yaml) [![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Contributors](https://img.shields.io/github/contributors/dadosdelaplace/Rsubvenciones_spain)](https://github.com/dadosdelaplace/Rsubvenciones_spain/graphs/contributors) [![chat on Discord](https://img.shields.io/discord/308323056592486420?logo=discord)](https://discord.com/invite/r2ytSa782D)
+[![R-CMD-check](https://github.com/dadosdelaplace/Rsubvenciones_spain/actions/workflows/check-pak.yaml/badge.svg?branch=rpak)](https://github.com/dadosdelaplace/Rsubvenciones_spain/actions/workflows/check-pak.yaml)
+[![License:
+GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Contributors](https://img.shields.io/github/contributors/dadosdelaplace/Rsubvenciones_spain)](https://github.com/dadosdelaplace/Rsubvenciones_spain/graphs/contributors)
+[![chat on
+Discord](https://img.shields.io/discord/308323056592486420?logo=discord)](https://discord.com/invite/r2ytSa782D)
 
 <!-- badges: end -->
 
-Aportación desde la **comunidad de R** para la extracción, limpieza y visualización de los datos del volcado de la Base de Datos Nacional de Subvenciones (BDNS). Github del proyecto global y comunitario puesto en marcha por [**Jaime Gómez-Obregón**](https://github.com/JaimeObregon/subvenciones).
+Aportación desde la **comunidad de R** para la extracción, limpieza y
+visualización de los datos del volcado de la Base de Datos Nacional de
+Subvenciones (BDNS). Github del proyecto global y comunitario puesto en marcha
+por [**Jaime Gómez-Obregón**](https://github.com/JaimeObregon/subvenciones).
 
 |              |                                                                      |
-|----------------|------------------------------------------------------|
+|-----------------|--------------------------------------------------------------|
 | GitHub       | <https://github.com/JaimeObregon/subvenciones>                       |
 | Discord      | <https://discord.com/invite/r2ytSa782D>                              |
 | Idea inicial | <https://twitter.com/JaimeObregon/status/1507693311422877697> (hilo) |
@@ -43,7 +56,7 @@ devtools::install_github("dadosdelaplace/Rsubvenciones_spain",
 
 Carga convocatorias:
 
-```{r, eval=FALSE}
+```{r}
 library(subvencionesES)
 
 convocatorias <- carga_convocatorias()
@@ -53,8 +66,43 @@ convocatorias
 
 Carga subvenciones (archivos jurídicas):
 
-```{r, eval=FALSE}
+```{r}
 subvenciones <- carga_subvenciones()
 
 subvenciones
+```
+
+Extrae el CIF a partir del texto del campo del beneficiario:
+
+```{r cifs}
+
+library(dplyr)
+
+
+# Subvenciones en Agosto 2021
+subvenciones_dic18 <- subvenciones %>%
+  filter(fechaconc >= "2021-08-01" & fechaconc <= "2021-08-31") %>%
+  extrae_cif() %>%
+  select(cif_beneficiario, importe)
+
+resumen_top50 <- subvenciones_dic18 %>%
+  group_by(cif_beneficiario) %>%
+  summarise(importe = sum(importe)) %>%
+  arrange(desc(importe)) %>%
+  slice(1:50) %>%
+  mutate(cif_beneficiario = factor(cif_beneficiario, levels = cif_beneficiario))
+
+
+library(ggplot2)
+
+ggplot(resumen_top50, aes(x = cif_beneficiario)) +
+  geom_col(aes(y = importe)) +
+  scale_y_continuous(labels = scales::number_format(suffix = " €")) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(
+    title = "BDNS: Importes por beneficiario (Top 50)",
+    subtitle = "Agosto 2021",
+    caption = "BDNS"
+  )
 ```
