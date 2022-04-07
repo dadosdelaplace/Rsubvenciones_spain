@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/dadosdelaplace/Rsubvenciones_spain/actions/workflows/check-pak.yaml/badge.svg?branch=rpak)](https://github.com/dadosdelaplace/Rsubvenciones_spain/actions/workflows/check-pak.yaml)
 [![License:
 GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Contributors](https://img.shields.io/github/contributors/dadosdelaplace/Rsubvenciones_spain)](https://github.com/dadosdelaplace/Rsubvenciones_spain/graphs/contributors)
@@ -45,7 +46,11 @@ library(subvencionesES)
 convocatorias <- carga_convocatorias()
 
 convocatorias
+```
 
+Carga subvenciones (archivos jurídicas):
+
+``` r
 subvenciones <- carga_subvenciones()
 
 subvenciones

@@ -11,7 +11,7 @@ Aportación desde la comunidad de 'R' para la extracción, limpieza y visualizac
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/dadosdelaplace/Rsubvenciones_spain}
+  \item \url{https://github.com/dadosdelaplace/Rsubvenciones_spain/tree/rpak}
   \item Report bugs at \url{https://github.com/dadosdelaplace/Rsubvenciones_spain/issues}
 }
 

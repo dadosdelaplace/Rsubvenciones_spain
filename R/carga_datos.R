@@ -12,6 +12,7 @@
 #' formato .RData para reducir los tiempos de carga de datos en cada sesión
 #' independiente.
 #'
+#' @family carga_datos
 #'
 #' @return Un objeto en formato `tibble` con las cabeceras correctas.
 #'
