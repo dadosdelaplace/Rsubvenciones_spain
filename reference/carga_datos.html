@@ -73,12 +73,14 @@ independiente.</p>
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">carga_convocatorias</span><span class="op">(</span>
   cache_dir <span class="op">=</span> <span class="fu">rappdirs</span><span class="fu">::</span><span class="fu"><a href="https://rappdirs.r-lib.org/reference/user_data_dir.html" class="external-link">user_data_dir</a></span><span class="op">(</span><span class="st">"subvencionesES"</span><span class="op">)</span>,
-  update <span class="op">=</span> <span class="cn">FALSE</span>
+  update <span class="op">=</span> <span class="cn">FALSE</span>,
+  rebuild_db <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span>
 
 <span class="fu">carga_subvenciones</span><span class="op">(</span>
   cache_dir <span class="op">=</span> <span class="fu">rappdirs</span><span class="fu">::</span><span class="fu"><a href="https://rappdirs.r-lib.org/reference/user_data_dir.html" class="external-link">user_data_dir</a></span><span class="op">(</span><span class="st">"subvencionesES"</span><span class="op">)</span>,
-  update <span class="op">=</span> <span class="cn">FALSE</span>
+  update <span class="op">=</span> <span class="cn">FALSE</span>,
+  rebuild_db <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
     </div>
 
@@ -93,6 +95,9 @@ se almacena tambíén la copia procesada en formato .RData</p></dd>
 actual o cargar la copia local. Por defecto carga copia local (<code>FALSE</code>).
 Con la opción <code>update = TRUE</code> el paquete reescribe también el archivo
 .RData asociado.</p></dd>
+<dt>rebuild_db</dt>
+<dd><p>Vuelve a generar la base de datos local .RData a partir
+de los archivos csv ya descargados.</p></dd>
 </dl></div>
     <div id="valor">
     <h2>Valor</h2>

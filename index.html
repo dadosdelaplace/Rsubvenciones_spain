@@ -117,12 +117,76 @@
 
 <span class="va">convocatorias</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/carga_datos.html">carga_convocatorias</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="va">convocatorias</span></code></pre></div>
+<span class="va">convocatorias</span>
+<span class="co">#&gt; # A tibble: 350,078 x 13</span>
+<span class="co">#&gt;    IDConv id     mrr   convocanteN1  convocanteN2 convocanteN3 fechareg   titulo</span>
+<span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt;  &lt;lgl&gt; &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;        &lt;date&gt;     &lt;chr&gt; </span>
+<span class="co">#&gt;  1 819060 617500 FALSE DIPUTACIÓN P~ DIPUTACIÓN ~ &lt;NA&gt;         2022-03-25 ADQUI~</span>
+<span class="co">#&gt;  2 819059 617499 FALSE REGIÓN DE MU~ INSTITUTO M~ &lt;NA&gt;         2022-03-25 MANCO~</span>
+<span class="co">#&gt;  3 819058 617498 FALSE ONDA          AYUNTAMIENT~ &lt;NA&gt;         2022-03-25 Conve~</span>
+<span class="co">#&gt;  4 819057 617497 FALSE TORRENT       AYUNTAMIENT~ &lt;NA&gt;         2022-03-25 SUBVE~</span>
+<span class="co">#&gt;  5 819056 617496 FALSE REGIÓN DE MU~ INSTITUTO M~ &lt;NA&gt;         2022-03-25 AYUNT~</span>
+<span class="co">#&gt;  6 819055 617495 FALSE ONDA          AYUNTAMIENT~ &lt;NA&gt;         2022-03-25 Conve~</span>
+<span class="co">#&gt;  7 819054 617494 FALSE TORRENT       AYUNTAMIENT~ &lt;NA&gt;         2022-03-25 ASIGN~</span>
+<span class="co">#&gt;  8 819052 617492 FALSE REGIÓN DE MU~ INSTITUTO M~ &lt;NA&gt;         2022-03-25 AYUNT~</span>
+<span class="co">#&gt;  9 819051 617491 FALSE ONDA          AYUNTAMIENT~ &lt;NA&gt;         2022-03-25 Conve~</span>
+<span class="co">#&gt; 10 819050 617490 FALSE ARAGÓN        INSTITUTO A~ &lt;NA&gt;         2022-03-25 CONVE~</span>
+<span class="co">#&gt; # ... with 350,068 more rows, and 5 more variables: bbreguladoras &lt;chr&gt;,</span>
+<span class="co">#&gt; #   tituloleng &lt;chr&gt;, verConcesiones &lt;lgl&gt;, dummy1 &lt;dbl&gt;, dummy2 &lt;dbl&gt;</span></code></pre></div>
 <p>Carga subvenciones (archivos jurídicas):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">subvenciones</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/carga_datos.html">carga_subvenciones</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="va">subvenciones</span></code></pre></div>
+<span class="va">subvenciones</span>
+<span class="co">#&gt; # A tibble: 3,810,368 x 17</span>
+<span class="co">#&gt;    ID       IDConv convocanteN1           convocanteN2 convocanteN3 convocatoria</span>
+<span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;       </span>
+<span class="co">#&gt;  1 65045185 811910 COMARCA COMUNIDAD DE ~ COMARCA DE ~ &lt;NA&gt;         CONVOCATORI~</span>
+<span class="co">#&gt;  2 65045222 811910 COMARCA COMUNIDAD DE ~ COMARCA DE ~ &lt;NA&gt;         CONVOCATORI~</span>
+<span class="co">#&gt;  3 65045266 811910 COMARCA COMUNIDAD DE ~ COMARCA DE ~ &lt;NA&gt;         CONVOCATORI~</span>
+<span class="co">#&gt;  4 65045280 811910 COMARCA COMUNIDAD DE ~ COMARCA DE ~ &lt;NA&gt;         CONVOCATORI~</span>
+<span class="co">#&gt;  5 65042893 818661 DIPUTACIÓN PROV. DE B~ DIPUTACIÓN ~ &lt;NA&gt;         CONVOCATORI~</span>
+<span class="co">#&gt;  6 65042591 818652 DIPUTACIÓN PROV. DE B~ DIPUTACIÓN ~ &lt;NA&gt;         CONVOCATORI~</span>
+<span class="co">#&gt;  7 65043828 749877 BURJASSOT              AYUNTAMIENT~ &lt;NA&gt;         CONCESIÓN Y~</span>
+<span class="co">#&gt;  8 65044522 798146 BURJASSOT              AYUNTAMIENT~ &lt;NA&gt;         APROBACIÓN ~</span>
+<span class="co">#&gt;  9 65053424 794733 LA RIOJA               CONSEJERÍA ~ &lt;NA&gt;         Ayudas proy~</span>
+<span class="co">#&gt; 10 65053427 794733 LA RIOJA               CONSEJERÍA ~ &lt;NA&gt;         Ayudas proy~</span>
+<span class="co">#&gt; # ... with 3,810,358 more rows, and 11 more variables: bbreguladoras &lt;chr&gt;,</span>
+<span class="co">#&gt; #   programa &lt;chr&gt;, fechaconc &lt;date&gt;, beneficiario &lt;chr&gt;, importe &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   instrumento &lt;chr&gt;, ayudaequiv &lt;dbl&gt;, detalles &lt;dbl&gt;, proyecto &lt;chr&gt;,</span>
+<span class="co">#&gt; #   sancion &lt;dbl&gt;, numcov &lt;dbl&gt;</span></code></pre></div>
+<p>Extrae el CIF a partir del texto del campo del beneficiario:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+
+
+<span class="co"># Subvenciones en Agosto 2021</span>
+<span class="va">subvenciones_dic18</span> <span class="op">&lt;-</span> <span class="va">subvenciones</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">fechaconc</span> <span class="op">&gt;=</span> <span class="st">"2021-08-01"</span> <span class="op">&amp;</span> <span class="va">fechaconc</span> <span class="op">&lt;=</span> <span class="st">"2021-08-31"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="reference/extrae_cif.html">extrae_cif</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">cif_beneficiario</span>, <span class="va">importe</span><span class="op">)</span>
+
+<span class="va">resumen_top50</span> <span class="op">&lt;-</span> <span class="va">subvenciones_dic18</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">cif_beneficiario</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>importe <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">importe</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">importe</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>cif_beneficiario <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">cif_beneficiario</span>, levels <span class="op">=</span> <span class="va">cif_beneficiario</span><span class="op">)</span><span class="op">)</span>
+
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">resumen_top50</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cif_beneficiario</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">importe</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">number_format</a></span><span class="op">(</span>suffix <span class="op">=</span> <span class="st">" €"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, hjust <span class="op">=</span> <span class="fl">1</span>, vjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"BDNS: Importes por beneficiario (Top 50)"</span>,
+    subtitle <span class="op">=</span> <span class="st">"Agosto 2021"</span>,
+    caption <span class="op">=</span> <span class="st">"BDNS"</span>
+  <span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-cifs-1.png" width="100%"></p>
 </div>
 </div>
   </div>
